@@ -1,0 +1,15 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <div class="flex py-2" *ngFor="let item of menuItem">
+      <div class="mr-8">
+        <ng-icon size="24" name="{{ item.icon }}"></ng-icon>
+      </div>
+      <a href="pages{{ item.path }}">{{ item.label }}</a>
+    </div>
+  </ion-content>
+</ion-menu>
