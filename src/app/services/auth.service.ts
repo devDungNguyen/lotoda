@@ -11,10 +11,16 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(body: LoginBody): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/login`, body);
+    return this.http.post(
+      `${environment.apiUrl}/${environment.apiAuth.login}`,
+      body
+    );
   }
 
   register(body: RegisterBody): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/register`, body);
+    return this.http.post(
+      `${environment.apiUrl}/${environment.apiAuth.register}`,
+      body
+    );
   }
 }

@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
 
   constructor(private authService: AuthService) {
     this.formData = {
-      email: 'nguyemanhdung@gmail.com',
+      email: 'nguyenmanhdung.dev@gmail.com',
       password: '123456789',
     };
   }
@@ -23,8 +23,11 @@ export class LoginPage implements OnInit {
   }
 
   login() {
+    console.log('login.....');
+
     this.authService.login(this.formData).subscribe((response) => {
       this.user = response;
+      console.log(this.user);
     });
   }
 }
