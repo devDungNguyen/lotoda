@@ -1,2 +1,64 @@
-<h1>login</h1>
-<ion-button shape="round" (click)="login()">ĐĂNG NHẬP</ion-button>
+<ion-content [fullscreen]="true">
+    <div class="flex flex-col px-4 mx-auto w-full max-w-[480px]">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0e46f5a4cad949d3ed1eaaa44d36ab3e0334b8b52c68df867b2e05c9145c5a5d?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+            alt="IoT Connected Devices" class="self-center max-w-full aspect-[1.32] w-[200px]" />
+        <h2 class="self-center mt-5 text-base text-center text-black">"Your Iot Connected Devices"</h2>
+        <form>
+            <div class="mx-6 gap-3">
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" id="email" placeholder="Email"
+                    class="justify-center items-start px-4 py-4 mt-8 text-sm whitespace-nowrap bg-white rounded-xl border border-solid border-neutral-400  text-opacity-60 w-full" />
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" placeholder="Password"
+                    class="justify-center items-start px-4 py-4 mt-3 text-sm whitespace-nowrap bg-white rounded-xl border border-solid border-neutral-400  text-opacity-60 w-full" />
+                <div class="flex gap-3 mt-3 w-full text-sm">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-neutral-400 flex items-center">
+                            <input type="checkbox" id="rememberMe" class="mr-2" />
+                            <label for="rememberMe" class="text-sn">Remember me</label>
+                        </div>
+                        <div class="flex justify-end ml-6">
+                            <a href="#" class="text-blue-600 text-sn dark:text-blue-600">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="justify-center items-center px-12 py-3 mt-3 text-base font-bold text-center whitespace-nowrap bg-blue-600 rounded-[40px] text-zinc-100 text-opacity-90 w-full">
+                    LOGIN
+                </button>
+            </div>
+        </form>
+        <p class="mt-4 text-sn text-center">
+            <span class="text-neutral-400">Don't have a account?</span>
+            <a href="/auth/register" class="text-blue-600">Register here</a>
+        </p>
+        <div class="mx-6 gap-3">
+            <h3 class="mt-6 text-sm italic font-bold text-black font-sans">CONTACT US</h3>
+            <div class="flex gap-5 mt-3 items-center ">
+                <div class="flex gap-px self-start">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/073cee06e8cae468256ffc27807bcfa2a2de185f7cd4c90045ba868d0bcb6da8?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+                        alt="" class="shrink-0 aspect-[0.54] w-[7px]" />
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/dbfca050766011c9e928052dd7164234d58557271a289808795017c96e259d8b?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+                        alt="" class="shrink-0 aspect-[0.54] w-[7px]" />
+                </div>
+                <p class="flex-auto text-base">
+                    <span class="text-zinc-600">Website</span>:
+                    <a href="#" type="email" class="text-blue-600">http://lotoda.vn</a>
+                </p>
+            </div>
+            <div class="flex gap-5 mt-3 items-center">
+                <div class="flex gap-px self-start">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/073cee06e8cae468256ffc27807bcfa2a2de185f7cd4c90045ba868d0bcb6da8?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+                        alt="" class="shrink-0 aspect-[0.54] w-[7px]" />
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/dbfca050766011c9e928052dd7164234d58557271a289808795017c96e259d8b?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+                        alt="" class="shrink-0 aspect-[0.54] w-[7px]" />
+                </div>
+                <p class="flex-auto text-base">
+                    <span class="text-zinc-600">Email</span>:
+                    <a href="#" type="email" class="text-blue-600">suppor&#64;lotoda.vn</a>
+                </p>
+            </div>
+        </div>
+        <p class="self-center mt-8 text-xs italic font-bold text-zinc-400">Version: 1.0.1</p>
+    </div>
+</ion-content>

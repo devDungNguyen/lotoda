@@ -1,13 +1,70 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="flex flex-col px-4 mx-auto w-full max-w-[480px]">
+    <div class="mt-6">
+      <h1 class="self-center text-4xl font-bold text-center text-blue-600">LOTODA</h1>
+      <p class="self-center mt-4 text-lg text-center text-black">"Your Iot Connected Devices"</p>
+    </div>
+    <h2 class="self-start -mb-4 mt-6 ml-7 text-xl font-bold text-black">Create a new account</h2>
+    <form>
+      <div class="mx-6 gap-3">
+        <label for="email" class="sr-only">Email</label>
+        <input type="email" id="email" placeholder="Email"
+          class="justify-center items-start px-4 py-4 mt-8 text-sm whitespace-nowrap bg-white rounded-xl border border-solid border-neutral-400  text-opacity-60 w-full" />
+        <label for="email" class="sr-only">Email</label>
+        <input type="email" id="email" placeholder="Email"
+          class="justify-center items-start px-4 py-4 mt-3 text-sm whitespace-nowrap bg-white rounded-xl border border-solid border-neutral-400  text-opacity-60 w-full" />
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" placeholder="Password"
+          class="justify-center items-start px-4 py-4 mt-3 text-sm whitespace-nowrap bg-white rounded-xl border border-solid border-neutral-400  text-opacity-60 w-full" />
+        <div class="flex gap-3 mt-3 w-full text-sm">
+          <div class=" gap-4">
+            <div class="text-neutral-400 flex items-center">
+              <input type="checkbox" id="rememberMe" class="mr-2" />
+              <label for="rememberMe" class="text-sn">I accept LOTODA terms</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit"
+          class="justify-center items-center px-12 py-3 mt-3 text-base font-bold text-center whitespace-nowrap bg-blue-600 rounded-[40px] text-zinc-100 text-opacity-90 w-full">
+          REGISTER
+        </button>
+      </div>
+    </form>
+    <p class="mt-4 text-sn text-center">
+      <span class="text-neutral-400">Alredy have a account?</span>
+      <a href="auth/login" class="text-blue-600">Login here</a>
+    </p>
+    <div class="mx-6 gap-3">
+      <h3 class="mt-6 text-sm italic font-bold text-black font-sans">CONTACT US</h3>
+      <div class="flex gap-5 mt-3 items-center ">
+        <div class="flex gap-px self-start">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/073cee06e8cae468256ffc27807bcfa2a2de185f7cd4c90045ba868d0bcb6da8?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+            alt="" class="shrink-0 aspect-[0.54] w-[7px]" />
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/dbfca050766011c9e928052dd7164234d58557271a289808795017c96e259d8b?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+            alt="" class="shrink-0 aspect-[0.54] w-[7px]" />
+        </div>
+        <p class="flex-auto text-base">
+          <span class="text-zinc-600">Website</span>:
+          <a href="#" type="email" class="text-blue-600">http://lotoda.vn</a>
+        </p>
+      </div>
+      <div class="flex gap-5 mt-3 items-center">
+        <div class="flex gap-px self-start">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/073cee06e8cae468256ffc27807bcfa2a2de185f7cd4c90045ba868d0bcb6da8?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+            alt="" class="shrink-0 aspect-[0.54] w-[7px]" />
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/dbfca050766011c9e928052dd7164234d58557271a289808795017c96e259d8b?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+            alt="" class="shrink-0 aspect-[0.54] w-[7px]" />
+        </div>
+        <p class="flex-auto text-base">
+          <span class="text-zinc-600">Email</span>:
+          <a href="#" type="email" class="text-blue-600">suppor&#64;lotoda.vn</a>
+        </p>
+      </div>
+    </div>
+    <p class="self-center mt-8 text-xs italic font-bold text-zinc-400">Version: 1.0.1</p>
+  </div>
 </ion-content>
