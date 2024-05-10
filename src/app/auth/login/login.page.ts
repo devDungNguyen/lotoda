@@ -8,7 +8,7 @@ import { LoginBody } from 'src/app/utils/interfaces';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   email: any;
   password: any;
   formData: LoginBody;
@@ -20,17 +20,6 @@ export class LoginPage implements OnInit {
     };
   }
 
-  // email: 'nguyenmanhdung.dev@gmail.com',
-  // password: '123456789',
-
-
-  // login() {
-
-  //   this.formData.email = this.email
-
-  //   console.log('Username:', this.formData.email);
-  // }
-
   login() {
     try {
       this.formData.email = this.email;
@@ -40,9 +29,5 @@ export class LoginPage implements OnInit {
     } catch (error) {
       alert(error);
     }
-  }
-
-  ngOnInit() {
-
   }
 }

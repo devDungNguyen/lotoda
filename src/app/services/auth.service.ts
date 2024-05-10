@@ -12,11 +12,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   accessTokenPrefix: string = 'accessToken';
 
-  constructor(
-    private http: HttpClient,
-    private cookieService: CookieService,
-    private router: Router
-  ) {}
+  constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   login(body: LoginBody) {
     this.http
