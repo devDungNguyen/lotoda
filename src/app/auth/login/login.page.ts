@@ -37,7 +37,6 @@ export class LoginPage implements OnInit {
       this.formData.password = this.password;
 
       this.authService.login(this.formData);
-      alert('Login successfully');
     } catch (error) {
       alert(error);
     }

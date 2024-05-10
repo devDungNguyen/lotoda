@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoginBody, LoginResponse, RegisterBody } from '../utils/interfaces';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,11 @@ import { CookieService } from 'ngx-cookie-service';
 export class AuthService {
   accessTokenPrefix: string = 'accessToken';
 
-  constructor(private http: HttpClient, private cookieService: CookieService) {}
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService,
+    private router: Router
+  ) {}
 
   login(body: LoginBody) {
     this.http
@@ -20,7 +25,14 @@ export class AuthService {
         body
       )
       .subscribe((response: LoginResponse) => {
-        this.setToken(response.token);
+        const isActive: boolean = response.user.active;
+        if (isActive) {
+          this.setToken(response.token);
+          alert('Login successfully');
+          window.location.reload();
+        } else {
+          alert('Not are not active!');
+        }
       });
   }
 
