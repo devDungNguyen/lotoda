@@ -26,7 +26,6 @@ export class LoginPage implements OnInit {
   login() {
     try {
       this.authService.login(this.formData);
-      alert('Login successfully');
     } catch (error) {
       alert(error);
     }
