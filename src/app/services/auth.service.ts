@@ -2,9 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LoginBody, LoginResponse, RegisterBody } from '../utils/interfaces';
+import {
+  AuthenticatedUser,
+  LoginBody,
+  LoginResponse,
+  RegisterBody,
+  User,
+} from '../utils/interfaces';
 import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -52,9 +57,9 @@ export class AuthService {
     );
   }
 
-  profile() {
-    this.http
-      .get(`${environment.apiUrl}/${environment.api.auth.user.get}`)
-      .subscribe((response) => console.log(response));
+  profile(): Observable<AuthenticatedUser> {
+    return this.http.get<AuthenticatedUser>(
+      `${environment.apiUrl}/${environment.api.auth.user.get}`
+    );
   }
 }

@@ -16,18 +16,24 @@ export interface RegisterBody {
 
 export interface LoginResponse {
   token: string;
-  user: {
-    active: boolean;
-    craeted: string;
-    devicemax: number;
-    email: string;
-    password: string;
-    license: string;
-    location: string;
-    role: string[];
-    rulemax: number;
-    topicmax: number;
-    widgetmax: number;
-    _id: string;
-  };
+  user: User;
+}
+
+export interface User {
+  active: boolean;
+  craeted: string;
+  devicemax: number;
+  email: string;
+  password: string;
+  license: string;
+  location: string;
+  role: string[];
+  rulemax: number;
+  topicmax: number;
+  widgetmax: number;
+  _id: string;
+}
+
+export interface AuthenticatedUser {
+  user: User;
 }
