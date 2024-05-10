@@ -5,8 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { SidenavComponent } from '../components/sidenav/sidenav.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { PagesPage } from './pages.page';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from '../interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [PagesPage, HeaderComponent],
