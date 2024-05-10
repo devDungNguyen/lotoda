@@ -9,9 +9,21 @@ const routes: Routes = [
         (m) => m.SLDDashboardPageModule
       ),
   },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./profiles/profiles.module').then(
+        (m) => m.ProfilesPageModule
+      ),
+  },
 
   { path: '', redirectTo: '/pages/sld-dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '/pages/sld-dashboard' },
+  {
+    path: 'profiles',
+    loadChildren: () => import('./profiles/profiles.module').then( m => m.ProfilesPageModule)
+  },
+
 ];
 
 @NgModule({
