@@ -9,25 +9,40 @@ import { LoginBody } from 'src/app/utils/interfaces';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  user: any;
+  email: any;
+  password: any;
   formData: LoginBody;
 
   constructor(private authService: AuthService, private router: Router) {
     this.formData = {
-      email: 'nguyenmanhdung.dev@gmail.com',
-      password: '123456789',
+      email: '',
+      password: '',
     };
   }
 
-  ngOnInit() {
-    return 0;
-  }
+  // email: 'nguyenmanhdung.dev@gmail.com',
+  // password: '123456789',
+
+
+  // login() {
+
+  //   this.formData.email = this.email
+
+  //   console.log('Username:', this.formData.email);
+  // }
 
   login() {
     try {
+      this.formData.email = this.email;
+      this.formData.password = this.password;
+
       this.authService.login(this.formData);
     } catch (error) {
       alert(error);
     }
+  }
+
+  ngOnInit() {
+
   }
 }
