@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sld-dashboard',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sld-dashboard.page.scss'],
 })
 export class SLDDashboardPage implements OnInit {
-
-  constructor() { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    this.authService.profile();
   }
-
 }

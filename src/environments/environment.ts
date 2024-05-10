@@ -5,9 +5,14 @@
 export const environment = {
   production: false,
   apiUrl: 'https://dashboard.lotoda.vn:8443/api',
-  apiAuth: {
-    login: 'login',
-    register: 'register',
+  api: {
+    auth: {
+      login: 'login',
+      register: 'register',
+      user: {
+        get: 'users',
+      },
+    },
   },
 };
 

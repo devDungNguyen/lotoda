@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -17,7 +17,7 @@ export class AuthService {
   login(body: LoginBody) {
     this.http
       .post<LoginResponse>(
-        `${environment.apiUrl}/${environment.apiAuth.login}`,
+        `${environment.apiUrl}/${environment.api.auth.login}`,
         body
       )
       .subscribe((response: LoginResponse) => {
@@ -36,6 +36,10 @@ export class AuthService {
     this.cookieService.set(this.accessTokenPrefix, jwtToken, undefined, '/');
   }
 
+  public getToken(): string {
+    return this.cookieService.get(this.accessTokenPrefix);
+  }
+
   isLogin() {
     const token = this.cookieService.get(this.accessTokenPrefix);
     return token.length > 0;
@@ -43,8 +47,14 @@ export class AuthService {
 
   register(body: RegisterBody): Observable<any> {
     return this.http.post(
-      `${environment.apiUrl}/${environment.apiAuth.register}`,
+      `${environment.apiUrl}/${environment.api.auth.register}`,
       body
     );
+  }
+
+  profile() {
+    this.http
+      .get(`${environment.apiUrl}/${environment.api.auth.user.get}`)
+      .subscribe((response) => console.log(response));
   }
 }
