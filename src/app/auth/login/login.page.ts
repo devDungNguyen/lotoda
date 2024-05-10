@@ -13,8 +13,6 @@ export class LoginPage implements OnInit {
   password: any;
   formData: LoginBody;
 
-
-    // 1
   constructor(private authService: AuthService, private router: Router) {
     this.formData = {
       email: '',
@@ -35,7 +33,6 @@ export class LoginPage implements OnInit {
 
   login() {
     try {
-
       this.formData.email = this.email;
       this.formData.password = this.password;
 
@@ -47,5 +44,6 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+
   }
 }

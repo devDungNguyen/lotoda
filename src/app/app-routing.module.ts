@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { PagesPage } from './pages/pages.page';
 import { AuthPage } from './auth/auth.page';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
     component: PagesPage,
     loadChildren: () =>
       import('./pages/pages.module').then((m) => m.PagesModule),
+    canLoad: [authGuard],
   },
 
   { path: '', redirectTo: 'pages', pathMatch: 'full' },

@@ -2,19 +2,41 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LoginBody, RegisterBody } from '../utils/interfaces';
+import { LoginBody, LoginResponse, RegisterBody } from '../utils/interfaces';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  accessTokenPrefix: string = 'accessToken';
 
-  login(body: LoginBody): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/login`, body);
+  constructor(private http: HttpClient, private cookieService: CookieService) {}
+
+  login(body: LoginBody) {
+    this.http
+      .post<LoginResponse>(
+        `${environment.apiUrl}/${environment.apiAuth.login}`,
+        body
+      )
+      .subscribe((response: LoginResponse) => {
+        this.setToken(response.token);
+      });
+  }
+
+  private setToken(jwtToken: string) {
+    this.cookieService.set(this.accessTokenPrefix, jwtToken, undefined, '/');
+  }
+
+  isLogin() {
+    const token = this.cookieService.get(this.accessTokenPrefix);
+    return token.length > 0;
   }
 
   register(body: RegisterBody): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/register`, body);
+    return this.http.post(
+      `${environment.apiUrl}/${environment.apiAuth.register}`,
+      body
+    );
   }
 }
