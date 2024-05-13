@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { ADMIN_SIDENAV } from 'src/app/utils/definitions';
+import { SIDENAV } from 'src/app/utils/definitions';
 import { MenuItem } from 'src/app/utils/interfaces';
 import * as iconsax from '@ng-icons/iconsax/outline';
 import { IonicModule } from '@ionic/angular';
@@ -17,9 +17,22 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SidenavComponent {
   menuItem: MenuItem[];
+  role: string;
 
   constructor(private authService: AuthService) {
-    this.menuItem = ADMIN_SIDENAV;
+    this.authService.profile().subscribe((response) => {
+      this.role = response.user.roles[0];
+
+      this.menuItem = [];
+
+      for (let i = 0; i < SIDENAV.length; i++) {
+        console.log(SIDENAV[i].forRole, this.role);
+
+        if (SIDENAV[i].forRole === this.role) {
+          this.menuItem.push(SIDENAV[i]);
+        }
+      }
+    });
   }
 
   logout() {

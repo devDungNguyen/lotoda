@@ -4,7 +4,7 @@
       <ion-title>Menu Content</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
+  <ion-content class="ion-padding" *ngIf="menuItem">
     <div class="flex py-2" *ngFor="let item of menuItem">
       <div class="mr-8">
         <ng-icon size="24" name="{{ item.icon }}"></ng-icon>

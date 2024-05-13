@@ -2,6 +2,12 @@ export interface MenuItem {
   path: string;
   icon?: any;
   label?: string;
+  forRole?: Roles;
+}
+
+export enum Roles {
+  'user' = 'user',
+  'admin' = 'admin',
 }
 
 export interface LoginBody {
@@ -29,7 +35,7 @@ export interface User {
   password: string;
   license: string;
   location: string;
-  role: string[];
+  roles: string[];
   rulemax: number;
   topicmax: number;
   widgetmax: number;
