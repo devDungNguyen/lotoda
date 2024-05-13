@@ -24,11 +24,13 @@ export class ProfilesPage implements OnInit {
   onChange(event: any) {
     const reader = new FileReader();
 
-    reader.onload = (event: any) => (this.avatarURL = event.target.result);
+    reader.onload = (event: any) => {
+      this.avatarURL = event.target.result;
+    };
 
     reader.onerror = (event: any) =>
       console.log('File could not be read: ' + event.target.error.code);
 
-    reader.readAsDataURL(event.target.files[0]);
+    if (event.target.files[0]) reader.readAsDataURL(event.target.files[0]);
   }
 }
