@@ -62,3 +62,6 @@ export const SIDENAV: MenuItem[] = [
     forRole: Roles.user,
   },
 ];
+
+export const DEFAULT_USER_AVATAR: string =
+  'https://cdn.builder.io/api/v1/image/assets/TEMP/f86a665d3276d99eff1777fc264645af21b004db3b87f103a7496892c6a844f3?apiKey=9cce0a3bf445400ab25afd487ca3b91b&';
