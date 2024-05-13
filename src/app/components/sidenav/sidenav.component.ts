@@ -26,8 +26,6 @@ export class SidenavComponent {
       this.menuItem = [];
 
       for (let i = 0; i < SIDENAV.length; i++) {
-        console.log(SIDENAV[i].forRole, this.role);
-
         if (SIDENAV[i].forRole === this.role) {
           this.menuItem.push(SIDENAV[i]);
         }

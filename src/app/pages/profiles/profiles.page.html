@@ -4,8 +4,18 @@
     <div class=" text-center flex justify-center">
       <ion-avatar class="avatar w-24 h-24">
         <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/f86a665d3276d99eff1777fc264645af21b004db3b87f103a7496892c6a844f3?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
-          alt="Profile picture" class="w-full rounded-full aspect-[0.99] max-w-[240px]" />
+          alt="Profile picture"
+          class="w-full rounded-full aspect-[0.99] max-w-[240px]"
+          *ngIf="avatarURL"
+          [src]="avatarURL"
+          (click)="avatarInput.click()"
+        />
+        <input
+          #avatarInput
+          type="file"
+          (change)="onChange($event)"
+          class="hidden"
+        />
       </ion-avatar>
     </div>
     <!-- content -->
@@ -13,7 +23,7 @@
       <ion-list class="px-3 item">
         <ion-item>
           <ion-icon name="people-sharp" class="icon"></ion-icon>
-          <ion-input class="" placeholder='dungBeo'></ion-input>
+          <ion-input class="" placeholder="dungBeo"></ion-input>
         </ion-item>
         <!-- 1 -->
         <ion-item>
@@ -22,7 +32,11 @@
         </ion-item>
         <ion-item>
           <ion-icon name="key" class="icon"></ion-icon>
-          <ion-input class="" type="Password" placeholder="**************"></ion-input>
+          <ion-input
+            class=""
+            type="Password"
+            placeholder="**************"
+          ></ion-input>
         </ion-item>
         <ion-item>
           <ion-icon name="logo-whatsapp" class="icon"></ion-icon>
@@ -30,13 +44,22 @@
         </ion-item>
         <ion-item class="">
           <ion-icon name="location-sharp" class="icon"></ion-icon>
-          <ion-input class="" placeholder="No 36,Street No 8,Ho Chi Minh city,Thu Duc, Viet Nam"></ion-input>
+          <ion-input
+            class=""
+            placeholder="No 36,Street No 8,Ho Chi Minh city,Thu Duc, Viet Nam"
+          ></ion-input>
         </ion-item>
       </ion-list>
     </div>
     <!-- btn submit -->
     <div class="flex justify-center">
       <ion-button fill="clear" shape="round" class="font-bold rounded-none  button-sl m-0">
+    <div class="flex justify-center my-3">
+      <ion-button
+        fill="clear"
+        shape="round"
+        class="font-bold rounded-none button-s1 m-0 shadow-lg"
+      >
         <ion-icon name="cloud-upload" class="mr-1"></ion-icon>
         SUBMIT
       </ion-button>

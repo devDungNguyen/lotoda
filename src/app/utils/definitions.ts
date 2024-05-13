@@ -15,6 +15,25 @@ export const SIDENAV: MenuItem[] = [
   },
   {
     path: '/devices-management  ',
+    path: '/sld-dashboard',
+    label: 'SDL Dashboard',
+    icon: 'saxHome1Outline',
+    forRole: Roles.user,
+  },
+  {
+    path: '/dashboard',
+    label: 'Dashboard admin',
+    icon: 'saxHome1Outline',
+    forRole: Roles.admin,
+  },
+  {
+    path: '/iot-dashboard',
+    label: 'IOT Dashboard',
+    icon: 'saxElement3Outline',
+    forRole: Roles.user,
+  },
+  {
+    path: '/devices-management',
     label: 'Devices Management',
     icon: 'saxSetting4Bold',
     forRole: Roles.user,
@@ -38,7 +57,7 @@ export const SIDENAV: MenuItem[] = [
     forRole: Roles.user,
   },
   {
-    path: '/history-report',
+    path: '/history-and-report',
     label: 'History & Report',
     icon: 'saxChartBold',
     forRole: Roles.user,
@@ -57,3 +76,5 @@ export const SIDENAV: MenuItem[] = [
   },
 ];
 
+export const DEFAULT_USER_AVATAR: string =
+  'https://cdn.builder.io/api/v1/image/assets/TEMP/f86a665d3276d99eff1777fc264645af21b004db3b87f103a7496892c6a844f3?apiKey=9cce0a3bf445400ab25afd487ca3b91b&';
