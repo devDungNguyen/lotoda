@@ -13,19 +13,54 @@ export class LoginPage {
   password: any;
   formData: LoginBody;
 
-  constructor(private authService: AuthService, private router: Router) {
+  formInput: {
+    type: string;
+    id: string;
+    label: string;
+    ngModel: string;
+  }[];
+
+  constructor(private authService: AuthService) {
+    this.formInput = [
+      {
+        type: 'email',
+        id: 'email',
+        label: 'Email',
+        ngModel: '',
+      },
+      {
+        type: 'password',
+        id: 'password',
+        label: 'Password',
+        ngModel: '',
+      },
+    ];
+
     this.formData = {
       email: '',
       password: '',
     };
   }
 
+
   login() {
     try {
-      this.formData.email = this.email;
-      this.formData.password = this.password;
+      const keys = Object.keys(this.formData);
 
-      this.authService.login(this.formData);
+      this.formInput.map((input, index) => {
+        if (!input.ngModel || input.ngModel.length <= 3) {
+          throw 'Login error. Check your input';
+        }
+        this.formData[keys[index]] = input.ngModel.trim();
+      });
+
+      this.authService
+        .login(this.formData)
+        // .subscribe((res) => console.log(res));
+
+      alert(
+        'Login successfully!'
+      );
     } catch (error) {
       alert(error);
     }

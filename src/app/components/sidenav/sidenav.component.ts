@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { SIDENAV } from 'src/app/utils/definitions';
 import { MenuItem } from 'src/app/utils/interfaces';
-import * as iconsax from '@ng-icons/iconsax/outline';
+import * as iconsax from '@ng-icons/iconsax/bold';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { AuthService } from 'src/app/services/auth.service';
+import { SIDENAV } from 'src/app/utils/definitions';
 
 @Component({
   selector: 'app-sidenav',

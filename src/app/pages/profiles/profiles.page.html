@@ -1,7 +1,8 @@
 <ion-content [fullscreen]="true" *ngIf="user">
-  <div class="pt-8">
-    <div class="text-center flex justify-center">
-      <ion-avatar class="w-36 h-36">
+  <div class="backgound-av">
+    <!-- avatar -->
+    <div class=" text-center flex justify-center">
+      <ion-avatar class="avatar w-24 h-24">
         <img
           alt="Profile picture"
           class="w-full rounded-full aspect-[0.99] max-w-[240px]"
@@ -17,8 +18,9 @@
         />
       </ion-avatar>
     </div>
-    <div class="mx-4 my-8">
-      <ion-list class="px-3">
+    <!-- content -->
+    <div class="mx-3 py-2 list-items">
+      <ion-list class="px-3 item">
         <ion-item>
           <ion-icon name="people-sharp" class="icon"></ion-icon>
           <ion-input class="" placeholder="dungBeo"></ion-input>
@@ -49,6 +51,9 @@
         </ion-item>
       </ion-list>
     </div>
+    <!-- btn submit -->
+    <div class="flex justify-center">
+      <ion-button fill="clear" shape="round" class="font-bold rounded-none  button-sl m-0">
     <div class="flex justify-center my-3">
       <ion-button
         fill="clear"

@@ -2,6 +2,19 @@ import { MenuItem, Roles } from './interfaces';
 
 export const SIDENAV: MenuItem[] = [
   {
+    path: '/dashboard',
+    label: 'Dashboard',
+    icon: 'saxHomeBold',
+    forRole: Roles.user,
+  },
+  {
+    path: '/iot-dashboard',
+    label: 'IoT Dashboard',
+    icon: 'saxElement4Bold',
+    forRole: Roles.user,
+  },
+  {
+    path: '/devices-management  ',
     path: '/sld-dashboard',
     label: 'SDL Dashboard',
     icon: 'saxHome1Outline',
@@ -22,43 +35,43 @@ export const SIDENAV: MenuItem[] = [
   {
     path: '/devices-management',
     label: 'Devices Management',
-    icon: 'saxElement4Outline',
+    icon: 'saxSetting4Bold',
     forRole: Roles.user,
   },
   {
     path: '/realtime-data',
     label: 'Realtime Data',
-    icon: 'saxDataOutline',
+    icon: 'saxSecurityTimeBold',
     forRole: Roles.user,
   },
   {
     path: '/alert-rules',
     label: 'Alert Rules',
-    icon: 'saxNotificationBingOutline',
+    icon: 'saxNotificationBingBold',
     forRole: Roles.user,
   },
   {
     path: '/setting',
     label: 'Setting',
-    icon: 'saxSetting2Outline',
+    icon: 'saxSetting2Bold',
     forRole: Roles.user,
   },
   {
     path: '/history-and-report',
     label: 'History & Report',
-    icon: 'saxChart3Outline',
+    icon: 'saxChartBold',
     forRole: Roles.user,
   },
   {
     path: '/profile',
     label: 'Profile',
-    icon: 'saxProfile2userOutline',
+    icon: 'saxUserBold',
     forRole: Roles.user,
   },
   {
     path: '/support',
     label: 'Support',
-    icon: 'saxExportOutline',
+    icon: 'saxBubbleBold',
     forRole: Roles.user,
   },
 ];

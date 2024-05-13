@@ -1,105 +1,47 @@
 <ion-content [fullscreen]="true">
-  <div class="flex flex-col px-4 mx-auto w-full max-w-[480px]">
+  <div class="flex flex-col px-4 mx-auto w-full">
     <img
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/0e46f5a4cad949d3ed1eaaa44d36ab3e0334b8b52c68df867b2e05c9145c5a5d?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
-      alt="IoT Connected Devices"
-      class="self-center max-w-full aspect-[1.32] w-[200px]"
-    />
-    <h2 class="self-center mt-5 text-base text-center text-black">
-      "Your IoT Connected Devices"
-    </h2>
-    <form class="mt-5">
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/997ddb9ba3523dc9fb8070a73c32ce6208b4b72970e3fd86cfb799761b73ae77?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+      alt="IoT Connected Devices" class="self-center max-w-full aspect-[1.32] w-[200px]" />
+    <h2 class="self-center text-base text-center uppercase font-bold text-black">login</h2>
+    <p class="self-center mt-5 text-base text-center text-black">
+      Hello! Log in with your email.
+    </p>
+    <form class="mt-9">
       <div class="mx-6 gap-3">
-        <div class="relative">
-          <input
-            type="text"
-            id="email"
-            name="email"
-            [(ngModel)]="email"
-            class="block border border-solid px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        <div class="relative my-3 inp-content" *ngFor="let input of formInput">
+          <input 
+            type="{{input.type}}" 
+            id="{{input.id}}"
+            class=" block border border-solid px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
+            name="{{input.id}}"
+            [(ngModel)]="input.ngModel"
           />
-          <label
-            for="email"
-            class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-1 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-2"
-          >
-            Email</label
-          >
+          <label 
+            for="{{input.id}}"
+            class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-1 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-2">
+              {{input.label}}
+          </label>
         </div>
-        <div class="relative mt-3">
-          <input
-            type="password"
-            id="password"
-            name="password"
-            [(ngModel)]="password"
-            class="block border border-solid px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-          />
-          <label
-            for="email"
-            class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-1 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-2"
-          >
-            Password</label
-          >
-        </div>
-        <div class="flex items-center justify-between mt-3">
+        <div class="flex items-center justify-between mt-4">
           <div class="flex items-center">
             <input type="checkbox" id="rememberMe" class="mr-2" />
             <label for="rememberMe" class="text-sm">Remember me</label>
           </div>
-          <a href="#" class="text-blue-600 text-sm dark:text-blue-600"
-            >Forgot Password?</a
-          >
+          <a href="/auth/forgot" class="text-blue-600 text-sm dark:text-blue-600">Forgot Password?</a>
         </div>
-        <button
-          (click)="login()"
-          type="submit"
-          class="px-12 py-3 mt-3 text-base font-bold text-center bg-blue-600 rounded-[40px] text-zinc-100 text-opacity-90 w-full"
-        >
+        <button (click)="login()" type="submit"
+          class=" py-2 mt-4 text-base font-bold text-center bg-blue-600 rounded-[40px] text-white text-opacity-90 w-full">
           LOGIN
         </button>
       </div>
     </form>
-    <p class="mt-4 text-base/6 text-center">
+    <p class="mt-4 text-sm text-center">
       <span class="text-neutral-400">Don't have an account?</span>
       <a href="/auth/register" class="text-blue-600">Register here</a>
     </p>
-    <h3 class="text-sm italic font-bold text-black font-sans mx-6 mt-3">
-      CONTACT US
-    </h3>
-    <div class="mx-6 gap-3">
-      <div class="flex items-center justify-center mt-3">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/073cee06e8cae468256ffc27807bcfa2a2de185f7cd4c90045ba868d0bcb6da8?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
-          alt=""
-          class="mr-1 w-[7px]"
-        />
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/dbfca050766011c9e928052dd7164234d58557271a289808795017c96e259d8b?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
-          alt=""
-          class="mr-1 w-[7px]"
-        />
-        <p class="flex-grow text-base">
-          <span class="text-zinc-600">Website</span>:
-          <a href="#" class="text-blue-600">http://lotoda.vn</a>
-        </p>
-      </div>
-      <div class="flex items-center justify-center mt-3">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/073cee06e8cae468256ffc27807bcfa2a2de185f7cd4c90045ba868d0bcb6da8?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
-          alt=""
-          class="mr-1 w-[7px]"
-        />
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/dbfca050766011c9e928052dd7164234d58557271a289808795017c96e259d8b?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
-          alt=""
-          class="mr-1 w-[7px]"
-        />
-        <p class="flex-grow text-base">
-          <span class="text-zinc-600">Email</span>:
-          <a href="#" class="text-blue-600">support&#64;lotoda.vn</a>
-        </p>
-      </div>
-    </div>
+  </div>
+  <div class="footer-gap w-full">
   </div>
 </ion-content>
