@@ -13,6 +13,7 @@ export enum Roles {
 export interface LoginBody {
   email: string;
   password: string;
+  [key: string]: string | undefined | null;
 }
 
 export interface RegisterBody {
