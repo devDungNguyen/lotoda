@@ -2,8 +2,8 @@ import { MenuItem, Roles } from './interfaces';
 
 export const SIDENAV: MenuItem[] = [
   {
-    path: '/dashboard',
-    label: 'Dashboard',
+    path: '/sld-dashboard',
+    label: 'SDL Dashboard',
     icon: 'saxHome1Outline',
     forRole: Roles.user,
   },
@@ -14,13 +14,13 @@ export const SIDENAV: MenuItem[] = [
     forRole: Roles.admin,
   },
   {
-    path: '/sld-dashboard',
-    label: 'IoT Dashboard',
+    path: '/iot-dashboard',
+    label: 'IOT Dashboard',
     icon: 'saxElement3Outline',
     forRole: Roles.user,
   },
   {
-    path: '/divices-management',
+    path: '/devices-management',
     label: 'Devices Management',
     icon: 'saxElement4Outline',
     forRole: Roles.user,
@@ -44,7 +44,7 @@ export const SIDENAV: MenuItem[] = [
     forRole: Roles.user,
   },
   {
-    path: '/history-report',
+    path: '/history-and-report',
     label: 'History & Report',
     icon: 'saxChart3Outline',
     forRole: Roles.user,
