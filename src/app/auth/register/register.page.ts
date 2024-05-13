@@ -61,7 +61,7 @@ export class RegisterPage implements OnInit {
         if (!input.ngModel || input.ngModel.length <= 3) {
           throw 'Register error. Check your input';
         }
-        this.formData[keys[index]] = input.ngModel;
+        this.formData[keys[index]] = input.ngModel.trim();
       });
 
       this.authService
