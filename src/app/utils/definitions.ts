@@ -2,34 +2,21 @@ import { MenuItem, Roles } from './interfaces';
 
 export const SIDENAV: MenuItem[] = [
   {
-    path: '/dashboard',
-    label: 'Dashboard',
-    icon: 'saxHomeBold',
-    forRole: Roles.user,
-  },
-  {
-    path: '/iot-dashboard',
-    label: 'IoT Dashboard',
-    icon: 'saxElement4Bold',
-    forRole: Roles.user,
-  },
-  {
-    path: '/devices-management  ',
     path: '/sld-dashboard',
     label: 'SDL Dashboard',
-    icon: 'saxHome1Outline',
+    icon: 'saxHomeBold',
     forRole: Roles.user,
   },
   {
     path: '/dashboard',
     label: 'Dashboard admin',
-    icon: 'saxHome1Outline',
+    icon: 'saxHomeBold',
     forRole: Roles.admin,
   },
   {
     path: '/iot-dashboard',
     label: 'IOT Dashboard',
-    icon: 'saxElement3Outline',
+    icon: 'saxElement4Bold',
     forRole: Roles.user,
   },
   {
