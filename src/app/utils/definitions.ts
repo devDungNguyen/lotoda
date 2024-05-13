@@ -1,50 +1,64 @@
-import { MenuItem } from './interfaces';
+import { MenuItem, Roles } from './interfaces';
 
-export const ADMIN_SIDENAV: MenuItem[] = [
+export const SIDENAV: MenuItem[] = [
   {
     path: '/dashboard',
     label: 'Dashboard',
     icon: 'saxHome1Outline',
+    forRole: Roles.user,
+  },
+  {
+    path: '/dashboard',
+    label: 'Dashboard admin',
+    icon: 'saxHome1Outline',
+    forRole: Roles.admin,
   },
   {
     path: '/sld-dashboard',
     label: 'IoT Dashboard',
     icon: 'saxElement3Outline',
+    forRole: Roles.user,
   },
   {
     path: '/divices-management',
     label: 'Devices Management',
     icon: 'saxElement4Outline',
+    forRole: Roles.user,
   },
   {
     path: '/realtime-data',
     label: 'Realtime Data',
     icon: 'saxDataOutline',
+    forRole: Roles.user,
   },
   {
     path: '/alert-rules',
     label: 'Alert Rules',
     icon: 'saxNotificationBingOutline',
+    forRole: Roles.user,
   },
   {
     path: '/setting',
     label: 'Setting',
     icon: 'saxSetting2Outline',
+    forRole: Roles.user,
   },
   {
     path: '/history-report',
     label: 'History & Report',
     icon: 'saxChart3Outline',
+    forRole: Roles.user,
   },
   {
     path: '/profile',
     label: 'Profile',
     icon: 'saxProfile2userOutline',
+    forRole: Roles.user,
   },
   {
     path: '/support',
     label: 'Support',
     icon: 'saxExportOutline',
+    forRole: Roles.user,
   },
 ];
-

@@ -10,13 +10,9 @@ import { User } from 'src/app/utils/interfaces';
 export class ProfilesPage implements OnInit {
   user: User;
 
-
-  constructor(private authService: AuthService) {
-
-  }
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.authService.profile().subscribe(res => this.user = res.user);
+    this.authService.profile().subscribe((res) => (this.user = res.user));
   }
-
 }

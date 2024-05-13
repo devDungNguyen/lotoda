@@ -11,6 +11,6 @@ export class SLDDashboardPage implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    return 0;
+    return;
   }
 }

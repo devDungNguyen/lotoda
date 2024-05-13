@@ -4,12 +4,21 @@
       <ion-title>Menu Content</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
+  <ion-content class="ion-padding" *ngIf="menuItem">
     <div class="flex py-2" *ngFor="let item of menuItem">
       <div class="mr-8">
         <ng-icon size="24" name="{{ item.icon }}"></ng-icon>
       </div>
       <a href="pages{{ item.path }}">{{ item.label }}</a>
+    </div>
+
+    <div class="flex py-2">
+      <div class="mr-8">
+        <ng-icon size="24" name="saxLogoutOutline"></ng-icon>
+      </div>
+      <button (click)="logout()" class="bg-none border-none outline-none">
+        Logout
+      </button>
     </div>
   </ion-content>
 </ion-menu>
