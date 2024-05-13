@@ -1,4 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -10,6 +14,7 @@ import {
   User,
 } from '../utils/interfaces';
 import { CookieService } from 'ngx-cookie-service';
+import { Preferences } from '@capacitor/preferences';
 
 @Injectable({
   providedIn: 'root',
@@ -25,16 +30,26 @@ export class AuthService {
         `${environment.apiUrl}/${environment.api.auth.login}`,
         body
       )
-      .subscribe((response: LoginResponse) => {
-        const isActive: boolean = response.user.active;
-        if (isActive) {
+      .subscribe(
+        (response: LoginResponse) => {
+          console.log(response);
+
+          const isActive: boolean = response.user.active;
+
+          if (!isActive) {
+            alert('Login error. Please, try again!');
+            return;
+          }
+
           this.setToken(response.token);
-          alert('Login successfully');
+          alert(`Hello, ${response.user.email} !`);
           window.location.reload();
-        } else {
-          alert('Not are not active!');
+          return;
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.status);
         }
-      });
+      );
   }
 
   private setToken(jwtToken: string) {
@@ -43,6 +58,12 @@ export class AuthService {
 
   public getToken(): string {
     return this.cookieService.get(this.accessTokenPrefix);
+  }
+
+  public removeToken() {
+    this.cookieService.delete(this.accessTokenPrefix, '/');
+
+    window.location.reload();
   }
 
   isLogin() {

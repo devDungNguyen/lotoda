@@ -10,8 +10,10 @@ export interface LoginBody {
 }
 
 export interface RegisterBody {
+  username?: string;
   email: string;
   password: string;
+  [key: string]: string | undefined | null;
 }
 
 export interface LoginResponse {

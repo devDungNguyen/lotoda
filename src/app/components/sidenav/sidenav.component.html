@@ -11,5 +11,14 @@
       </div>
       <a href="pages{{ item.path }}">{{ item.label }}</a>
     </div>
+
+    <div class="flex py-2">
+      <div class="mr-8">
+        <ng-icon size="24" name="saxLogoutOutline"></ng-icon>
+      </div>
+      <button (click)="logout()" class="bg-none border-none outline-none">
+        Logout
+      </button>
+    </div>
   </ion-content>
 </ion-menu>

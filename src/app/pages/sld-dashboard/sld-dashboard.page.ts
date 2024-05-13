@@ -8,9 +8,13 @@ import { User } from 'src/app/utils/interfaces';
   styleUrls: ['./sld-dashboard.page.scss'],
 })
 export class SLDDashboardPage implements OnInit {
+  user: User;
+
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    return 0;
+    this.authService
+      .profile()
+      .subscribe((response) => (this.user = response.user));
   }
 }

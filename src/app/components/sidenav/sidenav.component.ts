@@ -5,6 +5,7 @@ import { MenuItem } from 'src/app/utils/interfaces';
 import * as iconsax from '@ng-icons/iconsax/outline';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -17,7 +18,11 @@ import { CommonModule } from '@angular/common';
 export class SidenavComponent {
   menuItem: MenuItem[];
 
-  constructor() {
+  constructor(private authService: AuthService) {
     this.menuItem = ADMIN_SIDENAV;
+  }
+
+  logout() {
+    this.authService.removeToken();
   }
 }
