@@ -12,12 +12,15 @@ export class LoginPage {
   email: any;
   password: any;
   formData: LoginBody;
+  error: any;
+  success: any;
 
   formInput: {
     type: string;
     id: string;
     label: string;
     ngModel: string;
+    placeholder: string;
   }[];
 
   constructor(private authService: AuthService) {
@@ -27,12 +30,14 @@ export class LoginPage {
         id: 'email',
         label: 'Email',
         ngModel: '',
+        placeholder: ''
       },
       {
         type: 'password',
         id: 'password',
         label: 'Password',
         ngModel: '',
+        placeholder: ''
       },
     ];
 
@@ -49,20 +54,16 @@ export class LoginPage {
 
       this.formInput.map((input, index) => {
         if (!input.ngModel || input.ngModel.length <= 3) {
-          throw 'Login error. Check your input';
+          throw this.error = "! Please, check your input";
         }
+        
         this.formData[keys[index]] = input.ngModel.trim();
       });
 
       this.authService
         .login(this.formData)
-        // .subscribe((res) => console.log(res));
-
-      alert(
-        'Login successfully!'
-      );
+        this.success = "Log in successfully";
     } catch (error) {
-      alert(error);
     }
   }
 }
