@@ -20,12 +20,17 @@
     </div>
     <!-- content -->
     <div class="mx-3 py-2 list-items">
-      <ion-list class="px-3 item">
+      <ion-list class="px-3 item" *ngFor="let input of formInput">
         <ion-item>
+          <ion-icon name="{{input.name}}" class="{{input.class}}"></ion-icon>
+          <ion-input [disabled]="input.isDisabled"
+            [(ngModel)]="input.value"
+          ></ion-input>
+        </ion-item>
+        <!-- <ion-item>
           <ion-icon name="people-sharp" class="icon"></ion-icon>
           <ion-input class="" placeholder="dungBeo"></ion-input>
         </ion-item>
-        <!-- 1 -->
         <ion-item>
           <ion-icon name="mail" class="icon"></ion-icon>
           <ion-input class="" value="{{user.email}}"></ion-input>
@@ -42,13 +47,13 @@
           <ion-icon name="logo-whatsapp" class="icon"></ion-icon>
           <ion-input class="" placeholder="0388187172"></ion-input>
         </ion-item>
-        <ion-item class="">
+        <ion-item>
           <ion-icon name="location-sharp" class="icon"></ion-icon>
           <ion-input
             class=""
             placeholder="No 36,Street No 8,Ho Chi Minh city,Thu Duc, Viet Nam"
           ></ion-input>
-        </ion-item>
+        </ion-item> -->
       </ion-list>
     </div>
     <!-- btn submit -->
@@ -57,6 +62,7 @@
         fill="clear"
         shape="round"
         class="font-bold rounded-none button-sl m-0"
+        (click)="edit()"
       >
         <ion-icon name="cloud-upload" class="mr-1"></ion-icon>
         SUBMIT
