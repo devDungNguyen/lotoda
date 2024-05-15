@@ -66,10 +66,8 @@ export class ProfilesPage implements OnInit {
       ) => {
         if (!error && result && result.event === 'success') {
           console.log('Done! Here is the image info: ', result.info);
-          this.avatarURL = result.info.secure_url;
-          document
-            .querySelector('#avatar')
-            ?.setAttribute('src', result.info.secure_url);
+          this.avatarURL = result.info.url;
+          this.formData.user.avatar = this.avatarURL;
         }
       }
     );
@@ -103,19 +101,6 @@ export class ProfilesPage implements OnInit {
         },
       ];
     });
-  }
-
-  onChange(event: any) {
-    const reader = new FileReader();
-
-    reader.onload = (event: any) => {
-      this.avatarURL = event.target.result;
-    };
-
-    reader.onerror = (event: any) =>
-      console.log('File could not be read: ' + event.target.error.code);
-
-    if (event.target.files[0]) reader.readAsDataURL(event.target.files[0]);
   }
 
   openWidget() {
