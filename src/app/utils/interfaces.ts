@@ -32,7 +32,9 @@ export interface User {
   active: boolean;
   craeted: string;
   devicemax: number;
+  name: string;
   email: string;
+  phone: string;
   password: string;
   license: string;
   location: string;
@@ -48,5 +50,11 @@ export interface AuthenticatedUser {
 }
 
 export interface AuthenticatedEditUser {
-  email: string;
+  user: {
+    name?: string;
+    phone?: string;
+    location?: string;
+    avatar?: string;
+    [key: string]: string | undefined | null;
+  }
 }
