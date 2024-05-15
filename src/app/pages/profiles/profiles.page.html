@@ -2,34 +2,25 @@
   <div class="backgound-av">
     <div class="text-center flex justify-center">
       <ion-avatar class="avatar w-24 h-24">
-        <img
-          alt="Profile picture"
-          class="w-full rounded-full aspect-[0.99] max-w-[240px]"
-          *ngIf="avatarURL"
-          [src]="avatarURL"
-          id="avatar"
-          (click)="openWidget()"
-        />
+        <img alt="Profile picture" class="w-full rounded-full aspect-[0.99] max-w-[240px]" *ngIf="avatarURL"
+          [src]="avatarURL" id="avatar" (click)="openWidget()" />
       </ion-avatar>
+    </div>
+    <div>
+      <ion-toast class="toast" icon="checkmark-done-sharp" color="success" trigger="submit" position="bottom" positionAnchor="header" message="Done! save successfully"
+        duration="2000">
+      </ion-toast>
     </div>
     <div class="mx-3 py-2 list-items">
       <ion-list class="px-3 item" *ngFor="let input of formInput">
         <ion-item>
           <ion-icon name="{{input.name}}" class="{{input.class}}"></ion-icon>
-          <ion-input
-            [disabled]="input.isDisabled"
-            [(ngModel)]="input.value"
-          ></ion-input>
+          <ion-input [disabled]="input.isDisabled" [(ngModel)]="input.value"></ion-input>
         </ion-item>
       </ion-list>
     </div>
     <div class="flex justify-center">
-      <ion-button
-        fill="clear"
-        shape="round"
-        class="font-bold rounded-none button-sl m-0"
-        (click)="edit()"
-      >
+      <ion-button id="submit" fill="clear" shape="round" class="font-bold rounded-none button-sl m-0" (click)="edit()">
         <ion-icon name="cloud-upload" class="mr-1"></ion-icon>
         SUBMIT
       </ion-button>
