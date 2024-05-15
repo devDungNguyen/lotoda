@@ -2,8 +2,14 @@
   <div class="backgound-av">
     <div class="text-center flex justify-center">
       <ion-avatar class="avatar w-24 h-24">
-        <img alt="Profile picture" class="w-full rounded-full aspect-[0.99] max-w-[240px]" *ngIf="avatarURL"
-          [src]="avatarURL" id="avatar" (click)="openWidget()" />
+        <img
+          alt="Profile picture"
+          class="w-full rounded-full aspect-[0.99] max-w-[240px]"
+          *ngIf="avatarURL"
+          [src]="avatarURL"
+          id="avatar"
+          (click)="openWidget()"
+        />
       </ion-avatar>
     </div>
     <div>
@@ -27,3 +33,10 @@
     </div>
   </div>
 </ion-content>
+
+<script
+  src="https://widget.cloudinary.com/v2.0/global/all.js"
+  type="text/javascript"
+></script>
+
+<script src="upload_widget.js" type="text/javascript"></script>

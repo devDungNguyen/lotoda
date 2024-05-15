@@ -50,9 +50,11 @@ export class ProfilesPage implements OnInit {
   ngOnInit() {
     this.myWidget = (window as any).cloudinary.createUploadWidget(
       {
-        cloudName: environment.cloudinary.cloudName,
-        uploadPreset: environment.cloudinary.uploadPreset,
+        cloudName: 'dfib3gi7p',
+        uploadPreset: 'pnv0uopa_lotoda',
+        multiple: false,
         cropping: true,
+        clientAllowedFormats: ['avif', 'jpeg', 'jpg', 'png'],
         maxImageFileSize: 5000000, // 5 MB
       },
       (
@@ -63,7 +65,8 @@ export class ProfilesPage implements OnInit {
         }
       ) => {
         if (!error && result && result.event === 'success') {
-          console.log('Done! Here is the image info: ', result.info.url);
+          console.log('Done! Here is the image info: ', result.info);
+          this.avatarURL = result.info.secure_url;
           document
             .querySelector('#avatar')
             ?.setAttribute('src', result.info.secure_url);
@@ -122,7 +125,6 @@ export class ProfilesPage implements OnInit {
   edit() {
     try {
       const keys = Object.keys(this.formData.user);
-      console.log(keys);
 
       let i = 0;
 
@@ -132,6 +134,7 @@ export class ProfilesPage implements OnInit {
           i++;
         }
       });
+
       console.log(this.formData);
 
       this.userService.editUser(this.formData).subscribe((r) => console.log(r));
