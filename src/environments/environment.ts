@@ -19,6 +19,10 @@ export const environment = {
       get: prefix.user + '/',
     },
   },
+  cloudinary: {
+    cloudName: 'dfib3gi7p',
+    uploadPreset: 'pnv0uopa_lotoda',
+  },
 };
 
 /*

@@ -1,6 +1,5 @@
 <ion-content [fullscreen]="true" *ngIf="user">
   <div class="backgound-av">
-    <!-- avatar -->
     <div class="text-center flex justify-center">
       <ion-avatar class="avatar w-24 h-24">
         <img
@@ -8,24 +7,23 @@
           class="w-full rounded-full aspect-[0.99] max-w-[240px]"
           *ngIf="avatarURL"
           [src]="avatarURL"
-          (click)="avatarInput.click()"
+          id="avatar"
+          (click)="openWidget()"
         />
-        <input
+        <!-- <input
           #avatarInput
           type="file"
           (change)="onChange($event)"
           class="hidden"
-        />
+        /> -->
       </ion-avatar>
     </div>
-    <!-- content -->
     <div class="mx-3 py-2 list-items">
       <ion-list class="px-3 item">
         <ion-item>
           <ion-icon name="people-sharp" class="icon"></ion-icon>
           <ion-input class="" placeholder="dungBeo"></ion-input>
         </ion-item>
-        <!-- 1 -->
         <ion-item>
           <ion-icon name="mail" class="icon"></ion-icon>
           <ion-input class="" value="{{user.email}}"></ion-input>
@@ -51,7 +49,6 @@
         </ion-item>
       </ion-list>
     </div>
-    <!-- btn submit -->
     <div class="flex justify-center">
       <ion-button
         fill="clear"
