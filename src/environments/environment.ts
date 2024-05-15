@@ -2,16 +2,21 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const enum prefix {
+  user = 'users',
+}
+
 export const environment = {
   production: false,
-  apiUrl: 'https://dashboard.lotoda.vn:8443/api',
+  API_URL: 'https://dashboard.lotoda.vn:8443/api',
   api: {
     auth: {
       login: 'login',
       register: 'register',
-      user: {
-        get: 'users',
-      },
+      forgotPassword: prefix.user + '/forgot_password',
+    },
+    user: {
+      get: prefix.user + '/',
     },
   },
 };

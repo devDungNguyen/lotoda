@@ -1,11 +1,13 @@
 <ion-menu contentId="main-content">
   <ion-header>
     <div class="background-list">
-      <div class=" text-center flex justify-center">
+      <div class="text-center flex justify-center">
         <ion-avatar class="avatar w-20 h-20">
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/f86a665d3276d99eff1777fc264645af21b004db3b87f103a7496892c6a844f3?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
-            alt="Profile picture" class="w-full rounded-full aspect-[0.99] max-w-[240px]" />
+            alt="Profile picture"
+            class="w-full rounded-full aspect-[0.99] max-w-[240px]"
+          />
           <div>
             <h3>Hello! Park</h3>
           </div>
@@ -21,7 +23,12 @@
       <a href="pages{{ item.path }}">{{ item.label }}</a>
     </div>
     <div class="flex justify-center mt-2">
-      <ion-button (click)="logout()" fill="clear" shape="round" class="font-bold text-sm rounded-none uppercase  button-s1 m-0">
+      <ion-button
+        (click)="logout()"
+        fill="clear"
+        shape="round"
+        class="font-bold text-sm rounded-none uppercase button-s1 m-0"
+      >
         log out
         <ion-icon name="log-out" class="ml-1"></ion-icon>
       </ion-button>

@@ -42,7 +42,6 @@ export class LoginPage {
     };
   }
 
-
   login() {
     try {
       const keys = Object.keys(this.formData);
@@ -54,13 +53,8 @@ export class LoginPage {
         this.formData[keys[index]] = input.ngModel.trim();
       });
 
-      this.authService
-        .login(this.formData)
-        // .subscribe((res) => console.log(res));
-
-      alert(
-        'Login successfully!'
-      );
+      this.authService.login(this.formData);
+      // .subscribe((res) => console.log(res));
     } catch (error) {
       alert(error);
     }

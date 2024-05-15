@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  title: any;
-
-  constructor(private readonly route: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit() {
-    this.title = this.route.snapshot.routeConfig?.title;
-    console.log(this.route);
     return 0;
   }
 }
