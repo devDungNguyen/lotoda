@@ -12,6 +12,19 @@
         />
       </ion-avatar>
     </div>
+    <div>
+      <ion-toast
+        class="toast"
+        icon="checkmark-done-sharp"
+        color="success"
+        trigger="submit"
+        position="bottom"
+        positionAnchor="header"
+        message="Done! save successfully"
+        duration="2000"
+      >
+      </ion-toast>
+    </div>
     <div class="mx-3 py-2 list-items">
       <ion-list class="px-3 item" *ngFor="let input of formInput">
         <ion-item>
@@ -25,6 +38,7 @@
     </div>
     <div class="flex justify-center">
       <ion-button
+        id="submit"
         fill="clear"
         shape="round"
         class="font-bold rounded-none button-sl m-0"
@@ -36,6 +50,7 @@
     </div>
   </div>
 </ion-content>
+
 <script
   src="https://widget.cloudinary.com/v2.0/global/all.js"
   type="text/javascript"
