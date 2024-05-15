@@ -46,3 +46,7 @@ export interface User {
 export interface AuthenticatedUser {
   user: User;
 }
+
+export interface AuthenticatedEditUser {
+  email: string;
+}

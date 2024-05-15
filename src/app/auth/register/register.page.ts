@@ -12,6 +12,7 @@ export class RegisterPage implements OnInit {
   password: any;
   fullname: any;
   formData: RegisterBody;
+  error: any;
 
   formInput: {
     type: string;
@@ -59,7 +60,7 @@ export class RegisterPage implements OnInit {
 
       this.formInput.map((input, index) => {
         if (!input.ngModel || input.ngModel.length <= 3) {
-          throw 'Register error. Check your input';
+          throw this.error = 'Register error. Check your input';
         }
         this.formData[keys[index]] = input.ngModel.trim();
       });
@@ -72,7 +73,6 @@ export class RegisterPage implements OnInit {
         'Register successfully! Please, check your email to verify your account.'
       );
     } catch (error) {
-      alert(error);
     }
   }
 }
