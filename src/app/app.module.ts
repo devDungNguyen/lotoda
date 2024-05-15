@@ -10,6 +10,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CloudinaryModule } from '@cloudinary/ng';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    CloudinaryModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
