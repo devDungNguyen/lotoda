@@ -1,7 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { LoginBody } from 'src/app/utils/interfaces';
+import { LoginBody, LoginResponse } from 'src/app/utils/interfaces';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,11 @@ export class LoginPage {
   email: any;
   password: any;
   formData: LoginBody;
-  error: any;
+
+  isAlertOpen: boolean;
+  alertButtons: string[] = ['OK'];
+  isComplete: boolean = false;
+  message: string;
 
   formInput: {
     type: string;
@@ -23,6 +28,8 @@ export class LoginPage {
   }[];
 
   constructor(private authService: AuthService) {
+    this.isAlertOpen = false;
+
     this.formInput = [
       {
         type: 'email',
@@ -46,19 +53,51 @@ export class LoginPage {
     };
   }
 
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
+  }
+
+  hide() {
+    this.isAlertOpen = false;
+    if (this.isComplete) {
+      window.location.reload();
+    }
+  }
+
   login() {
     try {
       const keys = Object.keys(this.formData);
 
       this.formInput.map((input, index) => {
         if (!input.ngModel || input.ngModel.length <= 3) {
-          throw (this.error = '! Please, check your input');
+          throw 'Please, check your input!';
         }
 
         this.formData[keys[index]] = input.ngModel.trim();
       });
 
-      this.authService.login(this.formData);
-    } catch (error) {}
+      this.authService.login(this.formData).subscribe({
+        next: (response: LoginResponse) => {
+          const isActive: boolean = response.user.active;
+
+          if (!isActive) {
+            alert('Login error. Please, try again!');
+            return;
+          }
+
+          this.authService.setToken(response.token);
+          this.message = 'Login successfully!';
+          this.isComplete = true;
+          return;
+        },
+        error: (error: HttpErrorResponse) => {
+          this.message = 'Login failed. Please try again!';
+        },
+      });
+    } catch (error: any) {
+      this.message = error;
+    } finally {
+      this.setOpen(true);
+    }
   }
 }

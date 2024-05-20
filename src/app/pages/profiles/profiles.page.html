@@ -12,21 +12,10 @@
         />
       </ion-avatar>
     </div>
-    <div>
-      <ion-toast
-        class="toast"
-        icon="checkmark-done-sharp"
-        color="success"
-        trigger="submit"
-        position="bottom"
-        message="Done! save successfully"
-        duration="2000"
-      >
-      </ion-toast>
-    </div>
+    <div></div>
     <div class="mx-3 py-2 list-items">
-      <ion-list class="px-3 item" *ngFor="let input of formInput">
-        <ion-item>
+      <ion-list class="px-3 item">
+        <ion-item *ngFor="let input of formInput">
           <ion-icon name="{{input.name}}" class="{{input.class}}"></ion-icon>
           <ion-input
             [disabled]="input.isDisabled"

@@ -27,7 +27,7 @@
 
 .backgound-av::before {
   content: "";
-  background: url('https://www.shutterstock.com/image-illustration/iot-internet-things-industry-40-260nw-1495192142.jpg');
+  background: url("https://www.shutterstock.com/image-illustration/iot-internet-things-industry-40-260nw-1495192142.jpg");
   position: absolute;
   width: 120%;
   height: 16em;
@@ -36,20 +36,21 @@
   clip-path: ellipse();
 }
 
-.avatar{
+.avatar {
   position: absolute;
   top: 6.5em;
 }
 
-.item{
+.item {
   margin-bottom: 0.8em;
+  background: white;
 }
 
-.list-items{
+.list-items {
   margin-top: 13em;
 }
 
-.toast{
+.toast {
   background: #aeaeae24;
   color: #fcfcfc;
   font-size: medium;

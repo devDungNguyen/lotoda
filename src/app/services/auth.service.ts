@@ -25,34 +25,13 @@ export class AuthService {
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   login(body: LoginBody) {
-    this.http
-      .post<LoginResponse>(
-        `${environment.API_URL}/${environment.api.auth.login}`,
-        body
-      )
-      .subscribe({
-        next: (response: LoginResponse) => {
-          console.log(response);
-
-          const isActive: boolean = response.user.active;
-
-          if (!isActive) {
-            alert('Login error. Please, try again!');
-            return;
-          }
-
-          this.setToken(response.token);
-          alert(`Hello, ${response.user.email} !`);
-          window.location.reload();
-          return;
-        },
-        error: (error: HttpErrorResponse) => {
-          alert(error.status + ' !please check your input');
-        },
-      });
+    return this.http.post<LoginResponse>(
+      `${environment.API_URL}/${environment.api.auth.login}`,
+      body
+    );
   }
 
-  private setToken(jwtToken: string) {
+  public setToken(jwtToken: string) {
     this.cookieService.set(this.accessTokenPrefix, jwtToken, this.expired, '/');
   }
 
