@@ -19,16 +19,11 @@
       </div>
       <a href="pages{{ item.path }}">{{ item.label }}</a>
     </div>
-    <div class="flex justify-center mt-2">
-      <ion-button
-        (click)="logout()"
-        fill="clear"
-        shape="round"
-        class="font-bold text-sm rounded-none uppercase button-s1 m-0"
-      >
-        log out
-        <ion-icon name="log-out" class="ml-1"></ion-icon>
-      </ion-button>
+    <div class="flex py-2 list-items">
+      <div class="pr-4">
+        <ng-icon class="icons" size="24" name="saxLogoutBold"></ng-icon>
+      </div>
+      <a (click)="logout()">Log out</a>
     </div>
   </ion-content>
 </ion-menu>
