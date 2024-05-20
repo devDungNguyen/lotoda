@@ -1,0 +1,53 @@
+.button-sl {
+  --background: #0056f7;
+  color: aliceblue;
+  width: 10em;
+  height: 1.7em;
+  font-size: 16px;
+}
+
+.icon {
+  font-size: 32px;
+  margin-right: 1.1em;
+  opacity: 0.5;
+  padding-bottom: 0.35em;
+  color: #000bde;
+}
+
+.backgound-av {
+  width: 100%;
+  background: #fcfcfc;
+  position: relative;
+}
+
+.backgound-av::before {
+  content: "";
+  background: url("https://www.shutterstock.com/image-illustration/iot-internet-things-industry-40-260nw-1495192142.jpg");
+  position: absolute;
+  width: 120%;
+  height: 16em;
+  top: -6em;
+  left: -2em;
+  -webkit-clip-path: ellipse();
+          clip-path: ellipse();
+}
+
+.avatar {
+  position: absolute;
+  top: 6.5em;
+}
+
+.item {
+  margin-bottom: 0.8em;
+  background: white;
+}
+
+.list-items {
+  margin-top: 13em;
+}
+
+.toast {
+  background: rgba(174, 174, 174, 0.1411764706);
+  color: #fcfcfc;
+  font-size: medium;
+}/*# sourceMappingURL=profiles.page.css.map */

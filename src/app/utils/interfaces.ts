@@ -56,7 +56,7 @@ export interface AuthenticatedEditUser {
     location?: string;
     avatar?: string;
     [key: string]: string | undefined | null;
-  }
+  };
 }
 
 export interface CloudinaryImageResponse {
@@ -84,4 +84,15 @@ export interface CloudinaryImageResponse {
   original_filename: string;
   path: string;
   thumbnail_url: string;
+}
+
+export enum ToastStatus {
+  success = 'success',
+  danger = 'danger',
+  warning = 'warning',
+}
+
+export interface ToastParams {
+  message: string;
+  status: ToastStatus;
 }

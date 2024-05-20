@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user.service';
 import { DEFAULT_USER_AVATAR } from 'src/app/utils/definitions';
 import {
   AuthenticatedEditUser,
   CloudinaryImageResponse,
+  ToastParams,
+  ToastStatus,
   User,
 } from 'src/app/utils/interfaces';
 import { environment } from 'src/environments/environment';
@@ -35,7 +38,8 @@ export class ProfilesPage implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private toastService: ToastService
   ) {
     this.avatarURL = DEFAULT_USER_AVATAR;
     this.formData = {
@@ -50,8 +54,8 @@ export class ProfilesPage implements OnInit {
   ngOnInit() {
     this.myWidget = (window as any).cloudinary.createUploadWidget(
       {
-        cloudName: 'dfib3gi7p',
-        uploadPreset: 'pnv0uopa_lotoda',
+        cloudName: environment.cloudinary.cloudName,
+        uploadPreset: environment.cloudinary.uploadPreset,
         multiple: false,
         cropping: true,
         clientAllowedFormats: ['avif', 'jpeg', 'jpg', 'png'],
@@ -120,11 +124,16 @@ export class ProfilesPage implements OnInit {
         }
       });
 
-      console.log(this.formData);
-
-      this.userService.editUser(this.formData).subscribe((r) => console.log(r));
+      this.userService.editUser(this.formData).subscribe((r) => {
+        console.log(r);
+      });
     } catch (error) {
       throw error;
+    } finally {
+      this.toastService.presentToast(
+        'Update successfully!',
+        ToastStatus.success
+      );
     }
   }
 }
