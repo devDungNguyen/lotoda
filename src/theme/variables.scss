@@ -11,6 +11,7 @@
   --ion-text-color: black !important;
   --ion-item-color:black !important;
   --ion-item-background:white !important;
+  --button-color:white !important;
 }
 
 .ion-color-primary {
@@ -20,4 +21,9 @@
   --ion-color-contrast-rgb: var(--ion-color-primary-contrast-rgb);
   --ion-color-shade: var(--ion-color-primary-shade);
   --ion-color-tint: var(--ion-color-primary-tint);
+}
+
+.ion-color-success {
+  --ion-color-contrast: #ffffffdd !important;
+  --ion-color-success: #193ec1e8 !important;
 }

@@ -64,4 +64,5 @@ export const SIDENAV: MenuItem[] = [
 ];
 
 export const DEFAULT_USER_AVATAR: string =
-  'https://cdn.builder.io/api/v1/image/assets/TEMP/f86a665d3276d99eff1777fc264645af21b004db3b87f103a7496892c6a844f3?apiKey=9cce0a3bf445400ab25afd487ca3b91b&';
+  'https://www.svgrepo.com/show/384674/account-avatar-profile-user-11.svg';
+  // https://www.svgrepo.com/show/384674/account-avatar-profile-user-11.svg
