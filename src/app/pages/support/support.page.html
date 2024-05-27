@@ -1,3 +1,122 @@
 <ion-content [fullscreen]="true">
-    <h2>Support</h2>
+  <div class="w-full px-8 py-8 m-auto">
+    <div class="w-24 h-24 m-auto">
+      <img
+        src="{{image}}"
+        alt="IoT Connected Devices"
+        class="self-center w-full h-full object-cover"
+      />
+    </div>
+    <div class="w-full my-4">
+      Welcome to IOT LOTODA Platform. Before using the app, please check our
+      <span class="underline font-bold" (click)="setOpen(true)"
+        >FAQs section</span
+      >
+    </div>
+    <div class="w-full my-4 flex items-center">
+      <div class="w-fit h-12 flex items-center text-3xl">
+        <ion-icon name="alert-circle" color="primary"></ion-icon>
+      </div>
+      <p class="px-2">Current version: <span class="font-bold">1.0.0</span></p>
+    </div>
+    <div class="w-full my-4">
+      <div class="w-full my-4 flex items-center">
+        <div class="w-fit h-12 flex items-center text-3xl">
+          <ion-icon name="time" color="primary"></ion-icon>
+        </div>
+        <p class="font-bold px-2">Help & Support service hours:</p>
+      </div>
+      <div class="w-full px-4 my-4">
+        <div class="text-left">
+          <li>Mon - Fri: 8:30 AM - 6:00 PM (GMT + 7)</li>
+          <li>Sat - Sun: 10:00 AM - 4:00 PM (GMT + 7)</li>
+        </div>
+      </div>
+    </div>
+    <div class="w-full my-4">
+      <div class="w-full my-4 flex items-center">
+        <div class="w-fit h-12 flex items-center text-3xl">
+          <ion-icon name="help-circle" color="primary"></ion-icon>
+        </div>
+        <p class="font-bold px-2">Contact Us:</p>
+      </div>
+      <div
+        class="border border-primary-500 shadow flex items-center px-4 my-4 rounded-lg"
+        *ngFor="let c of contact"
+      >
+        <div class="w-12 h-12 text-3xl flex items-center justify-center mr-4">
+          <ion-icon name="{{c.icon}}" color="primary"></ion-icon>
+        </div>
+        <p class="flex-1 font-medium text-md">{{c.value}}</p>
+      </div>
+    </div>
+    <h1 class="font-bold my-4">SOCIAL MEDIA</h1>
+    <div
+      class="border border-primary-500 shadow flex items-center px-4 py-1 my-4 rounded-lg"
+      *ngFor="let s of socials"
+    >
+      <div class="w-12 h-12 text-4xl flex items-center justify-center mr-2">
+        <ion-icon name="{{s.icon}}" color="primary"></ion-icon>
+      </div>
+      <div class="">
+        <p class="flex-1 font-medium text-md">{{s.value}}</p>
+        <p class="opacity-60 font-medium">{{s.label}}</p>
+      </div>
+    </div>
+    <!-- Welcome to IOT LOTODA Platform! Thank you very much! 
+    Instruction of how to
+    use LOTODA App: Step 1: on SETTINGS, enter Username's ID key and Password's
+    ID Key from LOTODA's system, add some Topics (Channels). and click on
+    "Connect ..." to connect to LOTODA's system Step 2: on DASHBOARD, add
+    widgets and choose Topic(channel) for widget. Done and now enjoy it For more
+    details visiting to our website! Hướng Dẫn Sử Dụng Ứng Dụng loT LOTODA: Bước
+    1: vào mục SETTINGs, nhập Username's ID key và Password's ID Key đã nhận từ
+    hệ thống LOTODA platform, tạo các Topic (hoặc kênh) dữ liệu. sau đó click
+    vào nút "Connect ..." để kết nối đến hệ thống loT LOTODA platform Bước 2:
+    vào DASHBOARD, thêm các khối điều khiển giám sát (widgets) và chọn Topic
+    (Kênh - đã tạo ở bước 1) cho các widgets. Bạn đã hoàn tất, giờ bạn có thể
+    giám sát và điều khiển thiết bị. Cám ơn, hãy xem thêm chi tiết tại website
+    của chúng tôi! -->
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>How to use LOTODA</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <div
+            class="flex flex-wrap items-items w-full h-12 my-4"
+            *ngFor="let s of steps"
+          >
+            <div
+              class="w-12 h-12 bg-primary-500 flex items-center justify-center font-bold text-white text-xl rounded-full"
+            >
+              {{s.step}}
+            </div>
+            <div class="flex-1 flex items-center h-full px-4">
+              {{s.content}}.
+            </div>
+          </div>
+          <div class="flex flex-wrap items-items w-full h-12 my-4">
+            <div
+              class="w-12 h-12 border border-primary-500 bg-primary-50 flex items-center justify-center font-bold text-xl rounded-full"
+            >
+              <ion-icon name="checkmark-outline" color="primary"></ion-icon>
+            </div>
+            <div class="flex-1 h-full px-4">
+              Done and now enjoy it. For more details visiting to our
+              <a href="{{website}}" class="underline text-primary-500"
+                >website</a
+              >
+              .
+            </div>
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </div>
 </ion-content>
