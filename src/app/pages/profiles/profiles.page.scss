@@ -27,18 +27,26 @@
 
 .backgound-av::before {
   content: "";
-  background: url("https://www.shutterstock.com/image-illustration/iot-internet-things-industry-40-260nw-1495192142.jpg");
+  background: url("https://png.pngtree.com/thumb_back/fh260/background/20201029/pngtree-technological-background-internet-of-things-communication-network-innovation-technology-system-integration-image_443771.jpg");
   position: absolute;
+  background-repeat: no-repeat;
+  background-size:cover;
   width: 120%;
   height: 16em;
   top: -6em;
   left: -2em;
   clip-path: ellipse();
 }
-
 .avatar {
   position: absolute;
   top: 6.5em;
+}
+.avatar:hover .image {
+  opacity: 0.3;
+}
+
+.avatar:hover .middle {
+  opacity: 1;
 }
 
 .item {
@@ -49,9 +57,12 @@
 .list-items {
   margin-top: 13em;
 }
-
-.toast {
-  background: #aeaeae24;
-  color: #fcfcfc;
-  font-size: medium;
+.image {
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
 }
+
+
+

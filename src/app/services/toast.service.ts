@@ -8,15 +8,16 @@ export class ToastService {
   constructor(private toastController: ToastController) {}
 
   async presentToast(message: string, type: 'success' | 'danger' | 'warning') {
-    let icon: string = 'checkmark-done-sharp';
+    let icon: string = 'checkmark-circle';
     if (type === 'warning') {
       icon = 'warning-outline';
-    } else {
-      icon = 'close-circle-outline';
+    } else if (type === 'danger')
+    {
+      icon = 'close-circle';
     }
     const toast = await this.toastController.create({
       message: message,
-      duration: 150000,
+      duration: 2000,
       position: 'bottom',
       color: type,
       icon: icon,

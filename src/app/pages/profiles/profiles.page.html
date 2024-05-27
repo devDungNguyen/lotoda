@@ -2,14 +2,8 @@
   <div class="backgound-av">
     <div class="text-center flex justify-center">
       <ion-avatar class="avatar w-24 h-24">
-        <img
-          alt="Profile picture"
-          class="w-full rounded-full aspect-[0.99] max-w-[240px]"
-          *ngIf="avatarURL"
-          [src]="avatarURL"
-          id="avatar"
-          (click)="openWidget()"
-        />
+        <img alt="Profile picture" class="w-full rounded-full aspect-[0.99] max-w-[240px]" *ngIf="avatarURL"
+          [src]="avatarURL" id="avatar" (click)="openWidget()" />
       </ion-avatar>
     </div>
     <div></div>
@@ -17,21 +11,12 @@
       <ion-list class="px-3 item">
         <ion-item *ngFor="let input of formInput">
           <ion-icon name="{{input.name}}" class="{{input.class}}"></ion-icon>
-          <ion-input
-            [disabled]="input.isDisabled"
-            [(ngModel)]="input.value"
-          ></ion-input>
+          <ion-input [disabled]="input.isDisabled" [(ngModel)]="input.value"></ion-input>
         </ion-item>
       </ion-list>
     </div>
     <div class="flex justify-center">
-      <ion-button
-        id="submit"
-        fill="clear"
-        shape="round"
-        class="font-bold rounded-none button-sl m-0"
-        (click)="edit()"
-      >
+      <ion-button id="submit" fill="clear" shape="round" class="font-bold rounded-none button-sl m-0" (click)="edit()">
         <ion-icon name="cloud-upload" class="mr-1"></ion-icon>
         SUBMIT
       </ion-button>
@@ -39,9 +24,6 @@
   </div>
 </ion-content>
 
-<script
-  src="https://widget.cloudinary.com/v2.0/global/all.js"
-  type="text/javascript"
-></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
 
 <script src="upload_widget.js" type="text/javascript"></script>
