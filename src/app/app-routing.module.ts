@@ -17,6 +17,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/pages.module').then((m) => m.PagesModule),
     canLoad: [authGuard],
+    title: 'Page',
   },
 
   { path: '', redirectTo: 'pages', pathMatch: 'full' },

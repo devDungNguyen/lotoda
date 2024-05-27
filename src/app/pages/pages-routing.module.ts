@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'sld-dashboard',
+    title: 'SDL Dashboard',
     loadChildren: () =>
       import('./sld-dashboard/sld-dashboard.module').then(
         (m) => m.SLDDashboardPageModule
@@ -19,6 +20,7 @@ const routes: Routes = [
 
   {
     path: 'iot-dashboard',
+    title: 'IOT Dashboard',
     loadChildren: () =>
       import('./iot-dashboard/iot-dashboard.module').then(
         (m) => m.IOTDashboardPageModule
@@ -27,6 +29,7 @@ const routes: Routes = [
 
   {
     path: 'devices-management',
+    title: 'Devices Management',
     loadChildren: () =>
       import('./devices-management/devices-management.module').then(
         (m) => m.DevicesManagementPageModule
@@ -35,6 +38,7 @@ const routes: Routes = [
 
   {
     path: 'realtime-data',
+    title: 'Realtime Data',
     loadChildren: () =>
       import('./realtime-data/realtime-data.module').then(
         (m) => m.RealtimeDataPageModule
@@ -43,6 +47,7 @@ const routes: Routes = [
 
   {
     path: 'alert-rules',
+    title: 'Alert Rules',
     loadChildren: () =>
       import('./alert-rules/alert-rules.module').then(
         (m) => m.AlertRulesPageModule
@@ -51,12 +56,14 @@ const routes: Routes = [
 
   {
     path: 'setting',
+    title: 'Setting',
     loadChildren: () =>
       import('./setting/setting.module').then((m) => m.SettingPageModule),
   },
 
   {
     path: 'history-and-report',
+    title: 'History and Report',
     loadChildren: () =>
       import('./history-and-report/history-and-report.module').then(
         (m) => m.HistoryAndReportPageModule
@@ -65,6 +72,7 @@ const routes: Routes = [
 
   {
     path: 'support',
+    title: 'Support',
     loadChildren: () =>
       import('./support/support.module').then((m) => m.SupportPageModule),
   },

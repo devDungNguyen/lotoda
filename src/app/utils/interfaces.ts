@@ -32,7 +32,9 @@ export interface User {
   active: boolean;
   craeted: string;
   devicemax: number;
+  name: string;
   email: string;
+  phone: string;
   password: string;
   license: string;
   location: string;
@@ -48,5 +50,49 @@ export interface AuthenticatedUser {
 }
 
 export interface AuthenticatedEditUser {
-  email: string;
+  user: {
+    name?: string;
+    phone?: string;
+    location?: string;
+    avatar?: string;
+    [key: string]: string | undefined | null;
+  };
+}
+
+export interface CloudinaryImageResponse {
+  id: string;
+  batchId: string;
+  asset_id: string;
+  public_id: string;
+  version: number;
+  version_id: string;
+  signature: string;
+  width: number;
+  height: number;
+  format: string;
+  resource_type: string;
+  created_at: string;
+  tags: string[];
+  bytes: number;
+  type: string;
+  etag: string;
+  placeholder: boolean;
+  url: string;
+  secure_url: string;
+  folder: string;
+  access_mode: string;
+  original_filename: string;
+  path: string;
+  thumbnail_url: string;
+}
+
+export enum ToastStatus {
+  success = 'success',
+  danger = 'danger',
+  warning = 'warning',
+}
+
+export interface ToastParams {
+  message: string;
+  status: ToastStatus;
 }

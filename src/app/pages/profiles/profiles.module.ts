@@ -9,12 +9,7 @@ import { ProfilesPageRoutingModule } from './profiles-routing.module';
 import { ProfilesPage } from './profiles.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ProfilesPageRoutingModule
-  ],
-  declarations: [ProfilesPage]
+  imports: [CommonModule, FormsModule, IonicModule, ProfilesPageRoutingModule],
+  declarations: [ProfilesPage],
 })
 export class ProfilesPageModule {}

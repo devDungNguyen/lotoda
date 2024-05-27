@@ -1,30 +1,31 @@
 <ion-menu contentId="main-content">
   <ion-header>
     <div class="background-list">
-      <div class=" text-center flex justify-center">
-        <ion-avatar class="avatar w-20 h-20">
+      <div class="text-center flex justify-center">
+        <ion-avatar class="avatar w-24 h-24 mt-2">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/f86a665d3276d99eff1777fc264645af21b004db3b87f103a7496892c6a844f3?apiKey=9cce0a3bf445400ab25afd487ca3b91b&"
+            src="https://www.svgrepo.com/show/384674/account-avatar-profile-user-11.svg"
             alt="Profile picture" class="w-full rounded-full aspect-[0.99] max-w-[240px]" />
-          <div>
-            <h3>Hello! Park</h3>
-          </div>
         </ion-avatar>
       </div>
     </div>
   </ion-header>
-  <ion-content class="ion-padding">
-    <div class="flex py-2 list-items" *ngFor="let item of menuItem">
-      <div class="mr-8">
-        <ng-icon class="icons" size="24" name="{{ item.icon }}"></ng-icon>
+  <ion-content class="">
+    <div class="flex list-items" *ngFor="let item of menuItem">
+      <a href="pages{{ item.path }}" class="ion-activatable px-2 ripple-parent w-full  py-2">
+        <div class="pr-4">
+          <ng-icon class="icons" size="24" name="{{ item.icon }}"></ng-icon>
+        </div>
+        <p >{{ item.label }}</p>
+        <ion-ripple-effect></ion-ripple-effect>
+      </a>
+    </div>
+    <a (click)="logout()" class="list-items px-2 ripple-parent w-full  py-2">
+      <div class="pr-4">
+        <ng-icon class="icons" size="24" name="saxLogoutBold"></ng-icon>
       </div>
-      <a href="pages{{ item.path }}">{{ item.label }}</a>
-    </div>
-    <div class="flex justify-center mt-2">
-      <ion-button (click)="logout()" fill="clear" shape="round" class="font-bold text-sm rounded-none uppercase  button-s1 m-0">
-        log out
-        <ion-icon name="log-out" class="ml-1"></ion-icon>
-      </ion-button>
-    </div>
+      <p>Log out</p>
+      <ion-ripple-effect></ion-ripple-effect>
+    </a>
   </ion-content>
 </ion-menu>
