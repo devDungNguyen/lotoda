@@ -7,32 +7,36 @@ import { Subscription } from 'rxjs';
   templateUrl: './setting.page.html',
   styleUrls: ['./setting.page.scss'],
 })
-export class SettingPage implements OnInit, OnDestroy {
-  private subscription: Subscription;
-  public message: string;
-  constructor(private mqttService: MqttService) {
-    mqttService.connect({
-      username: 'ePdcZPfycf',
-      password: 'lBsIfMhmbU6pkUSbHdPu',
-    });
+export class SettingPage implements OnInit {
+  formInput: {
+    type: string;
+    id: string;
+    label: string;
+    ngModel: string;
+    placeholder: string;
+    icon: string;
+  }[];
 
-    this.subscription = this.mqttService
-      .observe('ePdcZPfycf/Sukem')
-      .subscribe((message: IMqttMessage) => {
-        this.message = message.payload.toString();
-        console.log('sukem');
-      });
-  }
+  constructor() {}
 
   ngOnInit() {
-    return;
-  }
-
-  public unsafePublish(topic: string, message: string): void {
-    this.mqttService.unsafePublish(topic, message, { qos: 1, retain: false });
-  }
-
-  public ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.formInput = [
+      {
+        type: 'text',
+        id: 'userkey',
+        label: 'User ID Key',
+        ngModel: '',
+        placeholder: 'Enter Username ID Key',
+        icon: 'person',
+      },
+      {
+        type: 'password',
+        id: 'passwordkey',
+        label: 'Password ID Key',
+        ngModel: '',
+        placeholder: 'Enter Password ID Key',
+        icon: 'key',
+      },
+    ];
   }
 }
