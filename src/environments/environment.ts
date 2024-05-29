@@ -17,7 +17,7 @@ export const environment = {
     },
     user: {
       get: prefix.user + '/',
-      put: prefix.user + '/'
+      put: prefix.user + '/',
     },
   },
   cloudinary: {

@@ -96,3 +96,14 @@ export interface ToastParams {
   message: string;
   status: ToastStatus;
 }
+
+export interface OnOffButton {
+  name: string;
+  status: 1 | 0 | number;
+  topic: string;
+}
+
+export interface Widget {
+  title: string;
+  children: any[];
+}

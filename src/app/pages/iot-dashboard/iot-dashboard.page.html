@@ -1,3 +1,53 @@
-<ion-content [fullscreen]="true">
-    <h2>Iot-dashboard</h2>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div
+    class="w-full border shadow roundede-md flex flex-wrap justify-between items-center"
+  >
+    <div
+      class="w-full text-center bg-primary-500 text-white px-4 py-4 font-bold flex items-center gap-x-4"
+    >
+      <ion-icon name="power" class="text-2xl"></ion-icon>
+      <h1 class="">DIY On/Off Type</h1>
+    </div>
+    <div class="w-1/2 px-4 py-4" *ngFor="let btn of onOffList">
+      <h1 class="font-bold my-4" (click)="editBtn(btn)">{{btn.name}}</h1>
+      <div class="flex h-10">
+        <button
+          (click)="(btn.status === 1) ? btn.status = 0 : btn.status = 1"
+          class="px-4 py-2 rounded-md w-full"
+          [ngClass]="btn.status === 1 ? 'bg-primary-500 text-white shadow-md font-bold' : 'bg-gray-100'"
+        >
+          ON
+        </button>
+      </div>
+    </div>
+  </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button id="open-action-sheet">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="bar-chart-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <!-- <button
+    (click)="unsafePublish()"
+    class="p-4 border-primary-500 text-primary-500 bg-primary-50 rounded-full"
+  >
+    Toggle
+  </button> -->
+
+  <ion-action-sheet
+    trigger="open-action-sheet"
+    header="Actions"
+    [buttons]="actionSheetButtons"
+    (didDismiss)="handleAction($event)"
+  ></ion-action-sheet>
 </ion-content>
