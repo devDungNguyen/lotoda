@@ -1,102 +1,145 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { IMqttMessage, MqttService } from 'ngx-mqtt';
 import { Subscription } from 'rxjs';
-import { OnOffButton } from 'src/app/utils/interfaces';
+import { OnOffButton, SheetAction, Widget } from 'src/app/utils/interfaces';
 
 @Component({
   selector: 'app-iot-dashboard',
   templateUrl: './iot-dashboard.page.html',
   styleUrls: ['./iot-dashboard.page.scss'],
 })
-export class IOTDashboardPage implements OnDestroy {
-  subscription: Subscription;
-  message: 0 | 1 | '0' | '1';
-  topic: string = 'ePdcZPfycf/Sukem'; //   ePdcZPfycf/#
+export class IOTDashboardPage implements OnDestroy, OnInit {
+  private subscription: Subscription;
+  private currentState: number | string;
+  // private topic: string = 'ePdcZPfycf/tele/lotoda32477BCC/SENSOR'; //   ePdcZPfycf/#
+  private topic: string = 'ePdcZPfycf/Test';
 
-  actionSheetButtonText: string[] = [
-    'Create DIY On/Off Type',
-    'Create On/Off Roller',
-    'Create On/Off Button',
-    'Create LoRa',
-  ];
-
-  actionSheetButtons = this.actionSheetButtonText.map((t) => {
-    return {
-      text: t,
+  public actionSheetButtons = [
+    {
+      text: 'Create ON/OFF button',
       role: 'share',
       data: {
-        action: 'switch',
+        action: SheetAction.createOnOff,
       },
-    };
-  });
-
-  onOffList: OnOffButton[] = [];
-
-  constructor(private _mqttService: MqttService) {
-    this.actionSheetButtons.push({
+    },
+    {
       text: 'Cancel',
       role: 'cancel',
       data: {
-        action: 'cancel',
+        action: SheetAction.cancel,
       },
-    });
+    },
+  ];
 
+  public widgets: Widget;
+
+  private onOffList: OnOffButton[] = [];
+
+  public temperatureHistory: {
+    value: number;
+    timestamp: string;
+  }[] = [];
+
+  public temperature: {
+    value: number;
+    timestamp: string;
+  }[];
+
+  constructor(private _mqttService: MqttService) {
     this._mqttService.connect({
       username: 'ePdcZPfycf',
       password: 'lBsIfMhmbU6pkUSbHdPu',
     });
+
     this.subscription = this._mqttService
       .observe(this.topic)
       .subscribe((message: IMqttMessage) => {
-        this.message = JSON.parse(message.payload.toString());
-        console.log('current', JSON.parse(message.payload.toString()));
-        this.onOffList.map((btn) => {
-          btn.status = Number(this.message);
-        });
+        const response = JSON.parse(message.payload.toString());
+        if (typeof response === 'number') {
+          this.currentState = response;
+          this.updateWidgetBtn();
+        }
+        // if (this.temperatureHistory.length > 10) {
+        //   this.temperature.shift();
+        // }
+        // this.temperatureHistory.push({
+        //   value: response['Temperature'],
+        //   timestamp: response['Time'],
+        // });
+        // this.temperature = this.temperatureHistory;
+        console.log(response);
       });
   }
 
-  public unsafePublish(): void {
-    if (this.message == '0') {
-      this.message = '1';
-    } else {
-      this.message = '0';
+  ngOnInit(): void {
+    const widgets = localStorage.getItem('widgets');
+    if (widgets) this.widgets = JSON.parse(widgets);
+    else {
+      this.widgets = {};
     }
-
-    this._mqttService.unsafePublish(this.topic, this.message, {
-      qos: 1,
-      retain: true,
-    });
   }
 
   public ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  toggle(s: any) {
-    if (s.status === 0) {
-      s.status = 1;
-      return;
-    }
-    s.status = 0;
+  public unsafePublish(newState: string | number): void {
+    this.currentState = newState.toString();
+
+    this._mqttService.unsafePublish(this.topic, this.currentState, {
+      qos: 1,
+      retain: true,
+    });
   }
 
-  handleAction(e: any) {
+  public handleAction(e: any) {
     const action = e.detail.data.action;
-    if (action === 'switch') {
+    if (action === SheetAction.createOnOff) {
+      if (this.widgets['OnOffBtn'] === undefined) {
+        this.widgets['OnOffBtn'] = {
+          title: 'ON/OFF Buttons',
+          children: [],
+        };
+      }
+
       this.onOffList.push({
         name: 'Switch No.' + (this.onOffList.length + 1),
-        status: 1,
+        state: Number(this.currentState),
         topic: 'Sukem',
       });
+      this.widgets['OnOffBtn'].children = this.onOffList;
+      this.storageWidget();
     }
   }
 
   editBtn(item: OnOffButton) {
-    this.unsafePublish();
-    this.onOffList.map((btn) => {
-      btn.status = Number(this.message);
+    // this.unsafePublish();
+    // this.onOffList.map((btn) => {
+    //   btn.status = Number(this.currentState);
+    // });
+    // console.log(item);
+  }
+
+  public updateBtnState(item: OnOffButton) {
+    const newState = item.state === 1 ? 0 : 1;
+    this.unsafePublish(newState);
+  }
+
+  private updateWidgetBtn() {
+    this.widgets['OnOffBtn'].children.map((item) => {
+      item.state = Number(this.currentState);
     });
-    console.log(item);
+    this.storageWidget();
+  }
+
+  private storageWidget() {
+    localStorage.setItem('widgets', JSON.stringify(this.widgets));
+    // console.log(this.widgets['OnOffBtn'].children);
   }
 }

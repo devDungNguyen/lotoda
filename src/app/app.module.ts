@@ -13,8 +13,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { CloudinaryModule } from '@cloudinary/ng';
 
 import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
-import { environment as env } from '../environments/environment';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {

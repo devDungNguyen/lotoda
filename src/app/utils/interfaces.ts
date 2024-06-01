@@ -99,11 +99,19 @@ export interface ToastParams {
 
 export interface OnOffButton {
   name: string;
-  status: 1 | 0 | number;
+  state: 1 | 0 | number;
   topic: string;
 }
 
 export interface Widget {
-  title: string;
-  children: any[];
+  [type: string]: {
+    title: string;
+    children: OnOffButton[];
+  };
+}
+
+export enum SheetAction {
+  createOnOff = 'createOnOff',
+  createChart = 'createChart',
+  cancel = 'cancel',
 }

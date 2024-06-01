@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { IOTDashboardPageRoutingModule } from './iot-dashboard-routing.module';
 
 import { IOTDashboardPage } from './iot-dashboard.page';
+import { ChartsModule } from 'src/app/components/charts/charts.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IOTDashboardPageRoutingModule
+    IOTDashboardPageRoutingModule,
+    ChartsModule,
   ],
-  declarations: [IOTDashboardPage]
+  declarations: [IOTDashboardPage],
 })
 export class IOTDashboardPageModule {}

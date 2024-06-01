@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { SidenavComponent } from '../components/sidenav/sidenav.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { PagesPage } from './pages.page';
-import { ToastService } from '../services/toast.service';
 
 @NgModule({
   declarations: [PagesPage, HeaderComponent],
